@@ -1,248 +1,134 @@
-# 🚢 Ship Maintenance Dashboard
+# Ship Maintenance Management System (Frontend Simulation)
 
-A frontend-only **React-based dashboard** for managing ships, components, and maintenance jobs. This project simulates a real-world ship maintenance system using **localStorage** for data persistence (no backend).
+## Problem
 
-Deployed Link: [Add Vercel/Netlify Link Here]
-GitHub Repo: [Add Repo Link Here]
+Managing maintenance operations for ships involves tracking multiple entities such as ships, components, and maintenance jobs. Without a structured system, it becomes difficult to monitor job status, assign responsibilities, and ensure timely maintenance.
 
----
-
-## 📌 Features
-
-### 🔐 User Authentication (Simulated)
-
-* Hardcoded users with roles: **Admin, Inspector, Engineer**
-* Login with role-based access
-* Session persistence using `localStorage`
-
-### 🚢 Ships Management
-
-* Add, edit, delete, and list ships
-* View detailed **Ship Profile** (general info, components, maintenance history)
-
-### ⚙️ Ship Components Management
-
-* Manage components linked to ships
-* Fields: Name, Serial Number, Installation Date, Last Maintenance Date
-
-### 🛠️ Maintenance Jobs Management
-
-* Create, edit, and update jobs for components
-* Fields: Job Type, Priority, Status, Assigned Engineer, Scheduled Date
-* Filter jobs by ship, status, priority
-
-### 📅 Maintenance Calendar
-
-* View scheduled jobs in **monthly/weekly** view
-* Click on a date to see jobs scheduled that day
-
-### 🔔 Notification Center
-
-* In-app notifications for job events (**Created, Updated, Completed**)
-* Notifications are dismissible
-
-### 📊 KPI Dashboard
-
-* Cards & charts showing:
-
-  * Total Ships
-  * Overdue Components
-  * Jobs in Progress
-  * Jobs Completed
+This project simulates a real-world maintenance management system with structured workflows and role-based operations.
 
 ---
 
-## 🗄️ Data Persistence
+## Objective
 
-* All data stored in **localStorage** (`users`, `ships`, `components`, `jobs`, `session`)
-* No backend / API calls used
+To design a system that can:
 
----
-
-## 💻 Tech Stack
-
-* **React (Functional Components + Hooks)**
-* **React Router** (Navigation)
-* **Context API** (Global State Management)
-* **TailwindCSS** (UI Styling)
-* **localStorage** (Data persistence)
+- Manage ships and their components  
+- Track maintenance jobs across lifecycle stages  
+- Assign responsibilities based on user roles  
+- Provide visibility into system performance through dashboards  
 
 ---
 
-## 📂 Project Structure
+## System Overview
 
-```
-src/
-├── components/
-│   ├── Authentication/
-│   ├── Dashboard/
-│   ├── Ships/
-│   ├── Components/
-│   ├── Jobs/
-│   ├── Notifications/
-├── contexts/
-├── pages/
-├── utils/
-├── styles/
-```
+The system models a simplified enterprise workflow:
+
+- **Ships → Components → Maintenance Jobs**
+- Each job moves through states: Created → Assigned → In Progress → Completed
+- Users interact based on roles (Admin, Inspector, Engineer)
 
 ---
 
-## ⚡ Installation & Setup
+## Key Features
 
-1. Clone the repository
-
-   ```bash
-   git clone https://github.com/your-username/ship-maintenance-dashboard.git
-   cd ship-maintenance-dashboard
-   ```
-
-2. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-3. Run locally
-
-   ```bash
-   npm start
-   ```
-
-4. Build for production
-
-   ```bash
-   npm run build
-   ```
+### 1. Role-Based Access Control
+- Admin, Inspector, Engineer roles  
+- Different levels of interaction and control  
 
 ---
 
-## 🚀 Deployment
-
-* Deploy using **Vercel, Netlify, or GitHub Pages**.
-* Make sure `BrowserRouter` is configured properly for client-side routing.
-
----
-
-## 🧪 Example Users
-
-| Role      | Email                                           | Password    |
-| --------- | ----------------------------------------------- | ----------- |
-| Admin     | [admin@entnt.in](mailto:admin@entnt.in)         | admin123    |
-| Inspector | [inspector@entnt.in](mailto:inspector@entnt.in) | inspect123  |
-| Engineer  | [engineer@entnt.in](mailto:engineer@entnt.in)   | engineer123 |
+### 2. Entity Management
+- Ships management (create, update, delete)  
+- Components linked to ships  
+- Maintenance jobs linked to components  
 
 ---
 
-## 📝 Known Issues / Limitations
-
-* Calendar is basic (no drag-and-drop scheduling).
-* Notifications reset if localStorage is cleared.
-* No real-time backend integration (frontend-only).
-
----
-
-## 🤔 Technical Decisions
-
-* Used **Context API** over Redux to keep state simple.
-* Chose **TailwindCSS** for fast and responsive styling.
-* All CRUD operations abstracted into `utils/localStorageUtils.js` for maintainability.
+### 3. Workflow Management
+- Job lifecycle tracking (status, priority, scheduling)  
+- Assignment of engineers to specific jobs  
+- Filtering jobs by status, ship, and priority  
 
 ---
 
-## ⭐ Bonus Ideas (Future Enhancements)
-
-* Dark Mode
-* Export jobs/ships report as CSV
-* Role-based dashboards with different KPIs
+### 4. Event & Notification System
+- Notifications triggered on job updates  
+- Helps track system activity and changes  
 
 ---
 
-## 📧 Submission
-
-Send the following to **[hr@entnt.in](mailto:hr@entnt.in)**:
-
-* GitHub Repo Link
-* Deployed Application Link
+### 5. Dashboard & KPIs
+- Total ships  
+- Jobs in progress  
+- Completed jobs  
+- Overdue components  
 
 ---
 
-## 👨‍💻 Author
+### 6. Calendar View
+- Visual scheduling of maintenance jobs  
+- Enables tracking of upcoming work  
 
-Pranay Gadasu
+---
 
-* [LinkedIn](https://www.linkedin.com/in/pranay-gadasu/)
+## Key Design Decisions
 
+### 1. Frontend-Only Simulation
+Used localStorage to simulate backend persistence and system state.
 
+---
 
+### 2. State Management with Context API
+Chose Context API for centralized state handling without introducing unnecessary complexity.
 
-# Getting Started with Create React App
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 3. Modular Structure
+Separated components, contexts, and utilities to maintain scalability and readability.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### 4. Workflow-Oriented Design
+Focused on how entities interact rather than just CRUD operations.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What This Project Demonstrates
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Understanding of system design and workflows  
+- Ability to model real-world processes in software  
+- Frontend architecture and state management  
+- Designing structured, scalable applications  
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+- React (Hooks, Functional Components)  
+- Context API  
+- React Router  
+- TailwindCSS  
+- localStorage  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Limitations
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- No backend or real-time updates  
+- Data persistence limited to browser storage  
+- Simplified role and workflow logic  
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Future Improvements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Add backend with database integration  
+- Implement authentication system  
+- Real-time job tracking  
+- API-based architecture  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Demo
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Add Live Link]
